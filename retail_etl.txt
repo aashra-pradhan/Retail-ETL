@@ -1,0 +1,3 @@
+, I’ll be building an ETL pipeline for retail analytics where in:
+- I’ll take tables from mysql/postgresql as my data source (previously the open weather API was my data source in building the ETL pipeline) 
+-	I’m gonna look for data sources in Kaggle/ chatgpt for retail; Primarily the tables are gonna be: Products, Transactions/ Sales, Locations, Employees, Customers, etc.
