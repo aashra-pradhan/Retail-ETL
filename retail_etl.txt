@@ -1,3 +1,49 @@
 , I’ll be building an ETL pipeline for retail analytics where in:
 - I’ll take tables from mysql/postgresql as my data source (previously the open weather API was my data source in building the ETL pipeline) 
 -	I’m gonna look for data sources in Kaggle/ chatgpt for retail; Primarily the tables are gonna be: Products, Transactions/ Sales, Locations, Employees, Customers, etc.
+
+How You Use This for ETL
+1. Extract
+- Extract tables from MySQL/Postgres
+- Incremental load using:
+    - order_date
+    - last_updated
+
+2. Transform
+- Clean nulls
+- Derive:
+    - total quantity
+    - sales amount
+    - time attributes (day, month, year)
+- Join tables
+
+3. Load (Target)
+- Snowflake or DW
+
+
+FLOW: 
+Start ETL
+   ↓
+Extract from Postgres → raw DataFrames
+   ↓
+Stage raw data (optional CSV / staging tables)
+   ↓
+Transform:
+      - Clean messy rows
+      - Deduplicate
+      - Fix invalid FKs
+      - Compute derived metrics
+      - Build dimensions + fact table
+   ↓
+Load into DW:
+      - dim_customer
+      - dim_product
+      - dim_store
+      - dim_date
+      - fact_sales
+   ↓
+Validation (Check row counts, nulls, duplicate keys
+FK consistency
+Metrics sanity (sum of fact_sales matches orders in source))
+   ↓
+ETL Completed 
