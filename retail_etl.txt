@@ -47,3 +47,6 @@ FK consistency
 Metrics sanity (sum of fact_sales matches orders in source))
    ↓
 ETL Completed 
+
+
+Upsert is a database command that combines "update" and "insert," allowing you to either add a new record (insert) or modify an existing one (update) in a single, atomic operation, usually based on a primary key or unique identifier. If the record identified by the key exists, it's updated; if not, it's inserted, simplifying data synchronization and consistency tasks. 

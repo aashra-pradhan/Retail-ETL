@@ -44,9 +44,9 @@ def extract_tables():
         try:
             df = pd.read_sql(f"SELECT * FROM {table};", conn)
             dataframes[table] = df
-            print(f"✅ Extracted table: {table}")
+            print(f" Extracted table: {table}")
         except Exception as e:
-            print(f"⚠️ Failed to extract table {table}")
+            print(f" Failed to extract table {table}")
             print(e)
 
     # Close connection
